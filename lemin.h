@@ -23,28 +23,34 @@ typedef	struct	s_link
 
 typedef	struct	s_room
 {
-	int 		type;
-	char 		name;
+	char 		type;
+	char 		*name;
 	int 		x;
 	int 		y;
 }				t_room;
 
 typedef struct	s_data
 {
+	int 		ants;
 	int 		r_nb;
 	t_room		*rooms;
 	int 		l_nb;
 	t_link		*links;
-	int 		ants;
 }				t_data;
 
-t_list			*parse_map(void);
 void			parse_data(t_data *data);
-void			check_spdf(t_list *map, char c, int *d);
+t_list			*parse_map(void);
+int				check_spdf(t_list *map, char c);
 void			count_ants(t_list *map, t_data *data);
 void			count_rooms(t_list *map, t_data *data);
 void			count_links(t_list *map, t_data *data);
+void			parse_rooms(t_list *map, t_data *data);
+t_list			*parse_room(t_list *map, t_data *data, char type, int *r);
+void			parse_links(t_list *map, t_data *data);
+int			 	check_rindex(t_data *data, char *name);
+
 void			print_map(t_list *map);
 void			print_error(char *str);
+void			print_data(t_data *data);
 
 #endif

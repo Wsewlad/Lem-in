@@ -19,28 +19,27 @@ void	count_ants(t_list *map, t_data *data)
 	i = 0;
 	while (((char*)map->content)[i])
 	{
-		if (((char*)map->content)[i] < 48 || ((char*)map->content)[i] > 57)
+		if (!ft_isdigit(((char*)map->content)[i]))
 			print_error(map->content);
 		i++;
 	}
 	data->ants = ft_atoi(map->content);
 }
 
-void	check_spdf(t_list *map,char c, int *d)
+int	check_spdf(t_list *map, char c)
 {
 	int i;
+	int d;
 
 	i = 0;
+	d = 0;
 	while (((char*)map->content)[i])
 	{
 		if (((char*)map->content)[i] == c)
-			(*d)++;
-		if ((!ft_isdigit(((char*)map->content)[i])) && \
-				((char*)map->content)[i] != c && \
-				((char*)map->content)[i] != (c == ' ' ? '-' : ' '))
-			print_error(map->content);
+			d++;
 		i++;
 	}
+	return (d);
 }
 
 void	count_rooms(t_list *map, t_data *data)
@@ -51,10 +50,9 @@ void	count_rooms(t_list *map, t_data *data)
 	data->r_nb = 0;
 	while (map)
 	{
-		sp = 0;
 		if (((char*)map->content)[0] != '#')
 		{
-			check_spdf(map, ' ', &sp);
+			sp = check_spdf(map, ' ');
 			if (sp == 2)
 				data->r_nb++;
 			else if (sp)
@@ -76,10 +74,9 @@ void	count_links(t_list *map, t_data *data)
 	data->l_nb = 0;
 	while (map)
 	{
-		df = 0;
 		if (((char*)map->content)[0] != '#')
 		{
-			check_spdf(map, '-', &df);
+			df = check_spdf(map, '-');
 			if (df == 1)
 				data->l_nb++;
 			else if (df > 1)
@@ -91,4 +88,19 @@ void	count_links(t_list *map, t_data *data)
 		data->links = (t_link*)malloc(sizeof(t_link) * data->l_nb);
 	else
 		print_error("0 links");
+}
+
+int 	check_rindex(t_data *data, char *name)
+{
+	int i;
+
+	i = 0;
+	while (i < data->r_nb && ft_strcmp(data->rooms[i].name, name) != 0)
+		i++;
+	if (i == data->r_nb)
+	{
+		ft_printf("{red}Wrong link, non-existent room!{eoc}\n");
+		print_error(name);
+	}
+	return (i);
 }

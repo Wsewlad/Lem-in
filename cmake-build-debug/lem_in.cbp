@@ -45,7 +45,6 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/Users/vfil/CLionProjects/lem-in/./libft"/>
-					<Add directory="/Users/vfil/CLionProjects/lem-in/./libft/ft_printf"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
@@ -68,7 +67,6 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/Users/vfil/CLionProjects/lem-in/./libft"/>
-					<Add directory="/Users/vfil/CLionProjects/lem-in/./libft/ft_printf"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
@@ -87,7 +85,265 @@
 		<Unit filename="/Users/vfil/CLionProjects/lem-in/checker.c">
 			<Option target="lem_in"/>
 		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/find_road.c">
+			<Option target="lem_in"/>
+		</Unit>
 		<Unit filename="/Users/vfil/CLionProjects/lem-in/lemin.h">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_arriter.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_atoi.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_bzero.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_chrjoin_free.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_isalnum.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_isalpha.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_isascii.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_isdigit.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_isprint.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_itoa.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_itoa_base.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_llitoa.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_llitoa_base.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_lstadd.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_lstdel.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_lstdelcont.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_lstdelone.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_lstiter.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_lstmap.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_lstnew.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_memalloc.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_memccpy.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_memchr.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_memcmp.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_memcpy.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_memdel.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_memmove.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_memset.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_pow.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_print_list.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_printf/buf_manager.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_printf/check_color.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_printf/check_init_specification.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_printf/check_init_specification2.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_printf/flag_manager.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_printf/ft_printf.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_printf/is_spec_elem.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_printf/libftprintf.h">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_printf/lltoa_buf.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_printf/prntf_chrstr.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_printf/prntf_numb.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_printf/prntf_unicode.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_printf/prntf_unicode2.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_printf/ulltoa_base_buf.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_putchar.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_putchar_fd.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_putendl.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_putendl_fd.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_putnbr.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_putnbr_fd.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_putstr.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_putstr_fd.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strcat.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strchr.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strclr.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strcmp.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strcpy.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strdel.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strdup.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strequ.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_striter.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_striteri.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strjoin.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strjoin_free.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strlcat.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strlen.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strmap.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strmapi.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strncat.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strncmp.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strncpy.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strnequ.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strnew.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strnstr.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strrchr.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strrev.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strsplit.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strstr.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strsub.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_strtrim.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_tolower.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_toupper.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_ullitoa_base.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_ulltoa.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/get_next_line.c">
 			<Option target="lem_in"/>
 		</Unit>
 		<Unit filename="/Users/vfil/CLionProjects/lem-in/main.c">

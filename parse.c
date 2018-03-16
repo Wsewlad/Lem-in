@@ -21,12 +21,16 @@ t_list *parse_map(void)
 	lst = NULL;
 	if (get_next_line(0, &line) > 0)
 	{
+		if (!(*line))
+			print_error(line);
 		lst = ft_lstnew(line, ft_strlen(line));
 		ft_strdel(&line);
 	}
 	map = lst;
 	while (get_next_line(0, &line) > 0)
 	{
+		if (!(*line) || *line == 'L')
+			print_error(line);
 		lst->next = ft_lstnew(line, ft_strlen(line) + 1);
 		lst = lst->next;
 		ft_strdel(&line);
@@ -35,60 +39,88 @@ t_list *parse_map(void)
 	return (map);
 }
 
-void	parse_room(t_list *map, t_data *data, int type, int *r)
+t_list	*parse_room(t_list *map, t_data *data, char type, int *r)
 {
+	int	sp;
+	char **splt;
 
+	if (((char*)map->content)[0] != '#')
+	{
+		sp = check_spdf(map, ' ');
+		if (sp == 2)
+		{
+			splt = ft_strsplit(map->content, ' ');
+			data->rooms[*r].name = ft_strdup(splt[0]);
+			data->rooms[*r].x = ft_atoi(splt[1]);
+			data->rooms[*r].y = ft_atoi(splt[2]);
+			data->rooms[*r].type = type;
+			ft_arriter(splt, free);
+			free(splt);
+			(*r)++;
+		}
+	}
+	return(map);
 }
 
 void	parse_rooms(t_list *map, t_data *data)
 {
-	int sp;
 	int r;
 
 	r = 0;
 	while (map)
 	{
-		sp = 0;
-		if (((char*)map->content)[0] != '#')
-		{
-			check_spdf(map, ' ', &sp);
-			if (sp == 2)
-				parse_room(map, data, 0, &r);
-		}
-		else if (ft_strcmp(map->content, "##start") == 0)
+		if (ft_strcmp(map->content, "##start") == 0)
 		{
 			map = map->next;
-			if (((char*)map->content)[0] != '#')
-			{
-				check_spdf(map, ' ', &sp);
-				if (sp == 2)
-					parse_room(map, data, 0, &r);
-			}
+			parse_room(map, data, 's', &r);
 		}
 		else if (ft_strcmp(map->content, "##end") == 0)
 		{
 			map = map->next;
-			if (((char*)map->content)[0] != '#')
+			parse_room(map, data, 'e', &r);
+		}
+		else
+			parse_room(map, data, 'c', &r);
+		map = map->next;
+	}
+}
+
+void	parse_links(t_list *map, t_data *data)
+{
+	int	df;
+	char **splt;
+	int l;
+
+	l = 0;
+	while (map)
+	{
+		if (((char*)map->content)[0] != '#')
+		{
+			df = check_spdf(map, '-');
+			if (df == 1)
 			{
-				check_spdf(map, ' ', &sp);
-				if (sp == 2)
-					parse_room(map, data, 2, &r);
+				splt = ft_strsplit(map->content, '-');
+				data->links[l].r1 = check_rindex(data, splt[0]);
+				data->links[l].r2 = check_rindex(data, splt[1]);
+				ft_arriter(splt, free);
+				free(splt);
+				l++;
 			}
 		}
 		map = map->next;
 	}
 }
 
-
 void	parse_data(t_data *data)
 {
 	t_list *map;
+
 	map = parse_map();
 	count_ants(map, data);
 	count_rooms(map, data);
 	count_links(map, data);
-	ft_printf("ants: %d\n", data->ants);
-	ft_printf("rooms: %d\n", data->r_nb);
-	ft_printf("links: %d\n", data->l_nb);
+	parse_rooms(map, data);
+	parse_links(map, data);
 	print_map(map);
+	print_data(data);
 }

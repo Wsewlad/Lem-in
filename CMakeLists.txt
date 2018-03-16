@@ -3,25 +3,24 @@ project(lem_in C)
 
 set(CMAKE_C_STANDARD 99)
 include_directories(./libft)
-include_directories(./libft/ft_printf)
-set(ft_arriter.c ft_atoi.c ft_bzero.c ft_chrjoin_free.c ft_isalnum.c
-        ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c
-        ft_itoa_base.c ft_llitoa.c ft_llitoa_base.c ft_lstadd.c ft_lstdel.c
-        ft_lstdelcont.c ft_lstdelone.c ft_lstiter.c ft_lstmap.c libft/ft_lstnew.c
-        ft_memalloc.c ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c
-        ft_memdel.c ft_memmove.c ft_memset.c ft_pow.c ft_print_list.c
-        ft_putchar.c ft_putchar_fd.c ft_putendl.c ft_putendl_fd.c ft_putnbr.c
-        ft_putnbr_fd.c ft_putstr.c ft_putstr_fd.c ft_strcat.c ft_strchr.c
-        ft_strclr.c ft_strcmp.c ft_strcpy.c ft_strdel.c ft_strdup.c
-        ft_strequ.c ft_striter.c ft_striteri.c ft_strjoin.c ft_strjoin_free.c
-        ft_strlcat.c ft_strlen.c ft_strmap.c ft_strmapi.c ft_strncat.c ft_strncmp.c
-        ft_strncpy.c ft_strnequ.c ft_strnew.c ft_strnstr.c ft_strrchr.c
-        ft_strrev.c ft_strsplit.c ft_strstr.c ft_strsub.c ft_strtrim.c
-        ft_tolower.c ft_toupper.c ft_ullitoa_base.c ft_ulltoa.c get_next_line.c
-        buf_manager.c
-        check_color.c check_init_specification.c check_init_specification2.c
-        flag_manager.c ft_printf.c is_spec_elem.c libftprintf.h lltoa_buf.c
-        prntf_chrstr.c prntf_numb.c prntf_unicode.c prntf_unicode2.c ulltoa_base_buf.c libft.h
+set(SUBSET libft/ft_arriter.c libft/ft_atoi.c libft/ft_bzero.c libft/ft_chrjoin_free.c libft/ft_isalnum.c
+        libft/ft_isalpha.c libft/ft_isascii.c libft/ft_isdigit.c libft/ft_isprint.c libft/ft_itoa.c
+        libft/ft_itoa_base.c libft/ft_llitoa.c libft/ft_llitoa_base.c libft/ft_lstadd.c libft/ft_lstdel.c
+        libft/ft_lstdelcont.c libft/ft_lstdelone.c libft/ft_lstiter.c libft/ft_lstmap.c libft/ft_lstnew.c
+        libft/ft_memalloc.c libft/ft_memccpy.c libft/ft_memchr.c libft/ft_memcmp.c libft/ft_memcpy.c
+        libft/ft_memdel.c libft/ft_memmove.c libft/ft_memset.c libft/ft_pow.c libft/ft_print_list.c
+        libft/ft_putchar.c libft/ft_putchar_fd.c libft/ft_putendl.c libft/ft_putendl_fd.c libft/ft_putnbr.c
+        libft/ft_putnbr_fd.c libft/ft_putstr.c libft/ft_putstr_fd.c libft/ft_strcat.c libft/ft_strchr.c
+        libft/ft_strclr.c libft/ft_strcmp.c libft/ft_strcpy.c libft/ft_strdel.c libft/ft_strdup.c
+        libft/ft_strequ.c libft/ft_striter.c libft/ft_striteri.c libft/ft_strjoin.c libft/ft_strjoin_free.c
+        libft/ft_strlcat.c libft/ft_strlen.c libft/ft_strmap.c libft/ft_strmapi.c libft/ft_strncat.c libft/ft_strncmp.c
+        libft/ft_strncpy.c libft/ft_strnequ.c libft/ft_strnew.c libft/ft_strnstr.c libft/ft_strrchr.c
+        libft/ft_strrev.c libft/ft_strsplit.c libft/ft_strstr.c libft/ft_strsub.c libft/ft_strtrim.c
+        libft/ft_tolower.c libft/ft_toupper.c libft/ft_ullitoa_base.c libft/ft_ulltoa.c libft/get_next_line.c
+        libft/ft_printf/buf_manager.c
+        libft/ft_printf/check_color.c libft/ft_printf/check_init_specification.c libft/ft_printf/check_init_specification2.c
+        libft/ft_printf/flag_manager.c libft/ft_printf/ft_printf.c libft/ft_printf/is_spec_elem.c libft/ft_printf/libftprintf.h libft/ft_printf/lltoa_buf.c
+        libft/ft_printf/prntf_chrstr.c libft/ft_printf/prntf_numb.c libft/ft_printf/prntf_unicode.c libft/ft_printf/prntf_unicode2.c libft/ft_printf/ulltoa_base_buf.c
         )
 
-add_executable(lem_in main.c parse.c lemin.h checker.c print_res.c)
+add_executable(lem_in lemin.h main.c parse.c checker.c print_res.c find_road.c ${SUBSET})

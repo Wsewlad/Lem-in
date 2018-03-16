@@ -6,5 +6,5 @@ C_FLAGS = -g   -std=gnu99
 
 C_DEFINES = 
 
-C_INCLUDES = -I/Users/vfil/CLionProjects/lem-in/./libft -I/Users/vfil/CLionProjects/lem-in/./libft/ft_printf 
+C_INCLUDES = -I/Users/vfil/CLionProjects/lem-in/./libft 
 
