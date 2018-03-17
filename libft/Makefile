@@ -27,7 +27,7 @@ LSRC    =	ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 			ft_lstiter.c ft_lstmap.c ft_lstdelcont.c ft_strrev.c \
 			ft_itoa_base.c get_next_line.c ft_chrjoin_free.c ft_strjoin_free.c \
 			ft_llitoa.c ft_ulltoa.c ft_llitoa_base.c ft_ullitoa_base.c \
-			ft_pow.c
+			ft_pow.c ft_lstappend.c
 
 SRC	=	    ft_printf.c check_init_specification.c check_init_specification2.c \
             is_spec_elem.c prntf_chrstr.c prntf_numb.c prntf_unicode.c \

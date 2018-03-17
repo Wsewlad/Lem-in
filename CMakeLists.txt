@@ -17,10 +17,11 @@ set(SUBSET libft/ft_arriter.c libft/ft_atoi.c libft/ft_bzero.c libft/ft_chrjoin_
         libft/ft_strncpy.c libft/ft_strnequ.c libft/ft_strnew.c libft/ft_strnstr.c libft/ft_strrchr.c
         libft/ft_strrev.c libft/ft_strsplit.c libft/ft_strstr.c libft/ft_strsub.c libft/ft_strtrim.c
         libft/ft_tolower.c libft/ft_toupper.c libft/ft_ullitoa_base.c libft/ft_ulltoa.c libft/get_next_line.c
-        libft/ft_printf/buf_manager.c
+        libft/ft_lstappend.c libft/ft_printf/buf_manager.c
         libft/ft_printf/check_color.c libft/ft_printf/check_init_specification.c libft/ft_printf/check_init_specification2.c
         libft/ft_printf/flag_manager.c libft/ft_printf/ft_printf.c libft/ft_printf/is_spec_elem.c libft/ft_printf/libftprintf.h libft/ft_printf/lltoa_buf.c
         libft/ft_printf/prntf_chrstr.c libft/ft_printf/prntf_numb.c libft/ft_printf/prntf_unicode.c libft/ft_printf/prntf_unicode2.c libft/ft_printf/ulltoa_base_buf.c
         )
 
-add_executable(lem_in lemin.h main.c parse.c checker.c print_res.c find_road.c ${SUBSET})
+add_executable(lem_in lemin.h main.c parse.c checker.c print_res.c find_road.c lists_manipulations.c
+        ${SUBSET})

@@ -133,6 +133,9 @@
 		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_lstadd.c">
 			<Option target="lem_in"/>
 		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_lstappend.c">
+			<Option target="lem_in"/>
+		</Unit>
 		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/ft_lstdel.c">
 			<Option target="lem_in"/>
 		</Unit>
@@ -344,6 +347,9 @@
 			<Option target="lem_in"/>
 		</Unit>
 		<Unit filename="/Users/vfil/CLionProjects/lem-in/libft/get_next_line.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/lists_manipulations.c">
 			<Option target="lem_in"/>
 		</Unit>
 		<Unit filename="/Users/vfil/CLionProjects/lem-in/main.c">

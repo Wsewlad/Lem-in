@@ -99,5 +99,6 @@ char				*ft_llitoa_base(long long ln, int base, int caps);
 char				*ft_ulltoa_base(unsigned long long ln, int base, int caps);
 int					ft_printf(const char *restrict format, ...);
 int					ft_pow(int nb, int pow);
+void				ft_lstappend(t_list **alst, t_list *new);
 
 #endif

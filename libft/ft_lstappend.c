@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstappend.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vfil <vfil@student.unit.ua>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/13 17:51:41 by vfil              #+#    #+#             */
-/*   Updated: 2018/03/13 17:51:43 by vfil             ###   ########.fr       */
+/*   Created: 2018/03/17 16:13:41 by vfil              #+#    #+#             */
+/*   Updated: 2018/03/17 16:13:44 by vfil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lemin.h"
+#include "libft.h"
 
-int main(void)
+void	ft_lstappend(t_list **alst, t_list *new)
 {
-	t_data	data;
-	t_road	*roads;
-
-	parse_data(&data);
-	roads = new_road();
-	roads->step = new_step(find_start(data));
-	find_roads(data, roads, roads, find_start(data));
-	print_roads(roads);
-	return 0;
+	if (alst && new)
+	{
+		while ((*alst)->next)
+			*alst = (*alst)->next;
+		(*alst)->next = new;
+	}
 }

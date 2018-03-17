@@ -555,6 +555,33 @@ libft/ft_lstadd.c.s:
 	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/libft/ft_lstadd.c.s
 .PHONY : libft/ft_lstadd.c.s
 
+libft/ft_lstappend.o: libft/ft_lstappend.c.o
+
+.PHONY : libft/ft_lstappend.o
+
+# target to build an object file
+libft/ft_lstappend.c.o:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/libft/ft_lstappend.c.o
+.PHONY : libft/ft_lstappend.c.o
+
+libft/ft_lstappend.i: libft/ft_lstappend.c.i
+
+.PHONY : libft/ft_lstappend.i
+
+# target to preprocess a source file
+libft/ft_lstappend.c.i:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/libft/ft_lstappend.c.i
+.PHONY : libft/ft_lstappend.c.i
+
+libft/ft_lstappend.s: libft/ft_lstappend.c.s
+
+.PHONY : libft/ft_lstappend.s
+
+# target to generate assembly for a file
+libft/ft_lstappend.c.s:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/libft/ft_lstappend.c.s
+.PHONY : libft/ft_lstappend.c.s
+
 libft/ft_lstdel.o: libft/ft_lstdel.c.o
 
 .PHONY : libft/ft_lstdel.o
@@ -2445,6 +2472,33 @@ libft/get_next_line.c.s:
 	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/libft/get_next_line.c.s
 .PHONY : libft/get_next_line.c.s
 
+lists_manipulations.o: lists_manipulations.c.o
+
+.PHONY : lists_manipulations.o
+
+# target to build an object file
+lists_manipulations.c.o:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/lists_manipulations.c.o
+.PHONY : lists_manipulations.c.o
+
+lists_manipulations.i: lists_manipulations.c.i
+
+.PHONY : lists_manipulations.i
+
+# target to preprocess a source file
+lists_manipulations.c.i:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/lists_manipulations.c.i
+.PHONY : lists_manipulations.c.i
+
+lists_manipulations.s: lists_manipulations.c.s
+
+.PHONY : lists_manipulations.s
+
+# target to generate assembly for a file
+lists_manipulations.c.s:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/lists_manipulations.c.s
+.PHONY : lists_manipulations.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -2583,6 +2637,9 @@ help:
 	@echo "... libft/ft_lstadd.o"
 	@echo "... libft/ft_lstadd.i"
 	@echo "... libft/ft_lstadd.s"
+	@echo "... libft/ft_lstappend.o"
+	@echo "... libft/ft_lstappend.i"
+	@echo "... libft/ft_lstappend.s"
 	@echo "... libft/ft_lstdel.o"
 	@echo "... libft/ft_lstdel.i"
 	@echo "... libft/ft_lstdel.s"
@@ -2793,6 +2850,9 @@ help:
 	@echo "... libft/get_next_line.o"
 	@echo "... libft/get_next_line.i"
 	@echo "... libft/get_next_line.s"
+	@echo "... lists_manipulations.o"
+	@echo "... lists_manipulations.i"
+	@echo "... lists_manipulations.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

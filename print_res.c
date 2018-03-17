@@ -46,9 +46,33 @@ void	print_data(t_data *data)
 	i = 0;
 	while (i < data->l_nb)
 	{
-		ft_printf("%d - %d\n", data->links[i].r1, data->links[i].r2);
+		ft_printf("%d - %d, t: %c - %c\n", data->links[i].r1, data->links[i].r2, \
+		data->links[i].r1_t, data->links[i].r2_t);
 		/*ft_printf("Link %d: %s - %s\n", i, data->rooms[data->links[i].r1].name, \
 		data->rooms[data->links[i].r2].name);*/
+		i++;
+	}
+}
+
+void 	print_roads(t_road	*roads)
+{
+	t_road	*current;
+	t_step	*stp;
+	int i;
+
+	current = roads;
+	i = 1;
+	while (current)
+	{
+		ft_printf("Road %d: ", i);
+		stp = current->step;
+		while (stp)
+		{
+			ft_printf("%d -> ", stp->r);
+			stp = stp->next;
+		}
+		ft_printf("\n");
+		current = current->next;
 		i++;
 	}
 }
