@@ -104,7 +104,6 @@ void	parse_links(t_list *map, t_data *data)
 				data->links[l].r1_t = data->rooms[data->links[l].r1].type;
 				data->links[l].r2 = check_rindex(data, splt[1]);
 				data->links[l].r2_t = data->rooms[data->links[l].r2].type;
-				data->links[l].status = 0;
 				ft_arriter(splt, free);
 				free(splt);
 				l++;

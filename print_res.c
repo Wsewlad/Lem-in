@@ -14,10 +14,15 @@
 
 void	print_map(t_list *map)
 {
+	t_list	*buf;
+
 	while (map)
 	{
 		ft_printf("%s\n", map->content);
-		map = map->next;
+		free(map->content);
+		buf = map->next;
+		free(map);
+		map = buf;
 	}
 }
 

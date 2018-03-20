@@ -21,7 +21,6 @@ typedef	struct	s_link
 	int 		r2;
 	char 		r1_t;
 	char 		r2_t;
-	int 		status;
 }				t_link;
 
 typedef	struct	s_room

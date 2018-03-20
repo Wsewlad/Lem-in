@@ -22,26 +22,47 @@ int 	find_start(t_data data)
 	return (i);
 }
 
+void 	find_last_stp(t_road *current, int *start)
+{
+	t_step	*stp;
+
+	if (current)
+	{
+		stp = current->step;
+		while (stp->next)
+			stp = stp->next;
+		*start = stp->r;
+	}
+}
+
 void	find_roads(t_data data, t_road *roads, t_road *current, int start)
 {
 	int		i;
-	t_link	*links;
+	t_road	*new;
+	int		nw;
 
-	links = data.links;
-	i = 0;
-	while (i < data.l_nb && data.rooms[start].type != 'e')
+	current = roads;
+	data.rooms[start].type = 'v';
+	while (current)
 	{
-		if (!links[i].status && (links[i].r1 == start || \
-		links[i].r2 == start))
+		i = 0;
+		while (i < data.l_nb && data.rooms[start].type != 'e')
 		{
-			current = copy_road(current);
-			road_append(roads, current);
-			start = links[i].r1 == start ? links[i].r2 : links[i].r1;
-			step_append(current->step, new_step(start));
-			links[i].status = 1;
-			find_roads(data, roads, current, start);
+			if ((data.links[i].r1 == start || data.links[i].r2 == start))
+			{
+				nw = data.links[i].r1 == start ? data.links[i].r2 : data.links[i].r1;
+				if (data.rooms[nw].type != 'v')
+				{
+					new = copy_road(current);
+					step_append(new->step, new_step(nw));
+					road_append(current, new);
+					data.rooms[nw].type = data.rooms[nw].type != 'e' ? 'v' : 'e';
+				}
+			}
+			i++;
 		}
-		i++;
+		current = current->next;
+		find_last_stp(current, &start);
 	}
 }
 
