@@ -12,6 +12,35 @@
 
 #include "lemin.h"
 
+void	find_roads(t_data data, t_road **roads, t_road *current, int start)
+{
+	int		i;
+	t_road	*new;
+	int		nw;
+
+	while (current)
+	{
+		i = 0;
+		data.rooms[start].type = (char)(data.rooms[start].type != 'e' ? 'v' : 'e');
+		while (i < data.l_nb && data.rooms[start].type != 'e')
+		{
+			if ((data.links[i].r1 == start || data.links[i].r2 == start))
+			{
+				nw = data.links[i].r1 == start ? data.links[i].r2 : data.links[i].r1;
+				if (data.rooms[nw].type != 'v')
+				{
+					new = copy_road(current);
+					step_append(new->step, new_step(nw));
+					road_append(current, new);
+				}
+			}
+			i++;
+		}
+		del_not_full(data, roads, &current);
+		find_last_stp(current, &start);
+	}
+}
+
 int 	find_start(t_data data)
 {
 	int i;
@@ -35,35 +64,48 @@ void 	find_last_stp(t_road *current, int *start)
 	}
 }
 
-void	find_roads(t_data data, t_road *roads, t_road *current, int start)
+void	del_road(t_road **road)
 {
-	int		i;
-	t_road	*new;
-	int		nw;
+	t_step	*stp;
 
-	current = roads;
-	data.rooms[start].type = 'v';
-	while (current)
+	if (*road)
 	{
-		i = 0;
-		while (i < data.l_nb && data.rooms[start].type != 'e')
+		while ((*road)->step)
 		{
-			if ((data.links[i].r1 == start || data.links[i].r2 == start))
-			{
-				nw = data.links[i].r1 == start ? data.links[i].r2 : data.links[i].r1;
-				if (data.rooms[nw].type != 'v')
-				{
-					new = copy_road(current);
-					step_append(new->step, new_step(nw));
-					road_append(current, new);
-					data.rooms[nw].type = data.rooms[nw].type != 'e' ? 'v' : 'e';
-				}
-			}
-			i++;
+			stp = (*road)->step->next;
+			free((*road)->step);
+			(*road)->step = stp;
 		}
-		current = current->next;
-		find_last_stp(current, &start);
+		free(*road);
+		*road = NULL;
 	}
 }
 
+void	del_not_full(t_data data, t_road **head, t_road **current)
+{
+	int 	last;
+	t_road	*lst;
 
+	find_last_stp(*current, &last);
+	if (data.rooms[last].type != 'e')
+	{
+		if (*head == *current)
+		{
+
+			lst = (*head)->next;
+			del_road(head);
+			*head = lst;
+			*current = *head;
+			return ;
+		}
+		lst = *head;
+		while (lst->next && lst->next != *current)
+			lst = lst->next;
+		if (lst->next)
+			lst->next = lst->next->next;
+		del_road(current);
+		*current = lst->next;
+	}
+	else
+		*current = (*current)->next;
+}

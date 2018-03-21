@@ -59,7 +59,7 @@ void	print_data(t_data *data)
 	}
 }
 
-void 	print_roads(t_road	*roads)
+void 	print_roads(t_data data, t_road	*roads)
 {
 	t_road	*current;
 	t_step	*stp;
@@ -69,11 +69,14 @@ void 	print_roads(t_road	*roads)
 	i = 1;
 	while (current)
 	{
-		ft_printf("Road %d: ", i);
+		ft_printf("Road %d:    ", i);
 		stp = current->step;
 		while (stp)
 		{
-			ft_printf("%d -> ", stp->r);
+			if (data.rooms[stp->r].type == 'e')
+				ft_printf("%d |", stp->r);
+			else
+				ft_printf("%d -> ", stp->r);
 			stp = stp->next;
 		}
 		ft_printf("\n");

@@ -63,16 +63,21 @@ void			parse_rooms(t_list *map, t_data *data);
 t_list			*parse_room(t_list *map, t_data *data, char type, int *r);
 void			parse_links(t_list *map, t_data *data);
 int			 	check_rindex(t_data *data, char *name);
-void			find_roads(t_data data, t_road *roads, t_road *current, int start);
+void			find_roads(t_data data, t_road **roads, t_road *current, int start);
 int			 	find_start(t_data data);
 t_road			*new_road();
 t_step			*new_step(int room);
 void			step_append(t_step *head, t_step *new);
 void			road_append(t_road *head, t_road *new);
 t_road			*copy_road(t_road *road);
+void			del_road(t_road **road);
+void		 	find_best_roads(t_data data, t_road **roads);
+void			del_not_full(t_data data, t_road **head, t_road **current);
+void		 	find_last_stp(t_road *current, int *start);
+
 void			print_map(t_list *map);
 void			print_error(char *str);
 void			print_data(t_data *data);
-void		 	print_roads(t_road	*roads);
+void		 	print_roads(t_data data, t_road	*roads);
 
 #endif

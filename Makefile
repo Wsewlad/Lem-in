@@ -11,7 +11,8 @@
 # **************************************************************************** #
 
 NAME	=	lem-in
-SRC		=	main.c parse.c checker.c print_res.c find_road.c lists_manipulations.c
+SRC		=	main.c parse.c checker.c print_res.c find_road.c lists_manipulations.c \
+			find_best_roads.c
 FLAGS	=	-Wall -Wextra -Werror
 MYLIB	=	-L libft -lftprintf -I libft
 
