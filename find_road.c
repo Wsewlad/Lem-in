@@ -93,6 +93,8 @@ void	del_not_full(t_data data, t_road **head, t_road **current)
 		{
 
 			lst = (*head)->next;
+			if (!lst)
+				print_error("No full roads!");
 			del_road(head);
 			*head = lst;
 			*current = *head;

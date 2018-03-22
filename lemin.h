@@ -71,7 +71,7 @@ void			step_append(t_step *head, t_step *new);
 void			road_append(t_road *head, t_road *new);
 t_road			*copy_road(t_road *road);
 void			del_road(t_road **road);
-void		 	find_best_roads(t_data data, t_road **roads);
+void		 	find_best_roads(t_road **roads);
 void			del_not_full(t_data data, t_road **head, t_road **current);
 void		 	find_last_stp(t_road *current, int *start);
 

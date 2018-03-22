@@ -23,7 +23,10 @@ int main(void)
 	current->step = new_step(find_start(data));
 	roads = current;
 	find_roads(data, &roads, current, find_start(data));
-	find_best_roads(data, &roads);
+	ft_printf("{blu}All roads:{eoc}\n");
+	print_roads(data, roads);
+	find_best_roads(&roads);
+	ft_printf("{red}Best roads:{eoc}\n");
 	print_roads(data, roads);
 	return 0;
 }
