@@ -83,6 +83,9 @@
 		<Unit filename="/Users/vfil/CLionProjects/lem-in/checker.c">
 			<Option target="lem_in"/>
 		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/conductor.c">
+			<Option target="lem_in"/>
+		</Unit>
 		<Unit filename="/Users/vfil/CLionProjects/lem-in/find_best_roads.c">
 			<Option target="lem_in"/>
 		</Unit>

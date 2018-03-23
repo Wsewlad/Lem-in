@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/lem_in.dir/find_road.c.o"
   "CMakeFiles/lem_in.dir/lists_manipulations.c.o"
   "CMakeFiles/lem_in.dir/find_best_roads.c.o"
+  "CMakeFiles/lem_in.dir/conductor.c.o"
   "CMakeFiles/lem_in.dir/libft/ft_arriter.c.o"
   "CMakeFiles/lem_in.dir/libft/ft_atoi.c.o"
   "CMakeFiles/lem_in.dir/libft/ft_bzero.c.o"
