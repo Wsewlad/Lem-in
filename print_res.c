@@ -69,18 +69,66 @@ void 	print_roads(t_data data, t_road	*roads)
 	i = 1;
 	while (current)
 	{
-		ft_printf("Road %d:    ", i);
+		ft_printf("{grn}Road %d:{eoc}    ", i);
 		stp = current->step;
 		while (stp)
 		{
 			if (data.rooms[stp->r].type == 'e')
-				ft_printf("%d |", stp->r);
+			{
+				if (stp->ant > 0 && stp->ant <= data.ants)
+					ft_printf("%d {yel}L%d{eoc} | {blu}len: %d{eoc}", stp->r, stp->ant, \
+				current->steps);
+				else
+					ft_printf("%d {grn}L%d{eoc} | {blu}len: %d{eoc}", stp->r, stp->ant, \
+				current->steps);
+			}
 			else
-				ft_printf("%d -> ", stp->r);
+			{
+				if (stp->ant > 0 && stp->ant <= data.ants)
+					ft_printf("%d {yel}L%d{eoc} {blu}->{eoc} ", stp->r, stp->ant);
+				else
+					ft_printf("%d {grn}L%d{eoc} {blu}->{eoc} ", stp->r, stp->ant);
+			}
 			stp = stp->next;
 		}
 		ft_printf("\n");
 		current = current->next;
+		i++;
+	}
+}
+
+void 	print_roads_arr(t_data data, t_stepi **roadsi, t_road *roads)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < data.bst_rd)
+	{
+		ft_printf("{grn}Road %d:{eoc}    ", i);
+		j = 1;
+		while (j < roads->steps)
+		{
+			if (data.rooms[roadsi[i][j].r].type == 'e')
+			{
+				if (roadsi[i][j].ant > 0 && roadsi[i][j].ant <= data.ants)
+					ft_printf("%d {yel}L%d{eoc} | {blu}len: %d{eoc}", roadsi[i][j].r, roadsi[i][j].ant, \
+				roads->steps);
+				else
+					ft_printf("%d {grn}L%d{eoc} | {blu}len: %d{eoc}", roadsi[i][j].r, roadsi[i][j].ant, \
+				roads->steps);
+			}
+			else
+			{
+				if (roadsi[i][j].ant > 0 && roadsi[i][j].ant <= data.ants)
+					ft_printf("%d {yel}L%d{eoc} {blu}->{eoc} ", roadsi[i][j].r, roadsi[i][j].ant);
+				else
+					ft_printf("%d {grn}L%d{eoc} {blu}->{eoc} ", roadsi[i][j].r, roadsi[i][j].ant);
+			}
+			j++;
+		}
+		ft_printf("\n");
+		roads = roads->next;
 		i++;
 	}
 }

@@ -76,3 +76,26 @@ void 	find_best_roads(t_road **roads)
 		}
 	}
 }
+
+void	count_steps(t_road *roads, t_data *data)
+{
+	t_road	*current;
+	t_step	*stp;
+
+	current = roads;
+	data->bst_rd = 0;
+	while (current)
+	{
+		stp = current->step;
+		current->steps = 0;
+		while (stp)
+		{
+			current->steps++;
+			stp->ant = 0;
+			stp = stp->next;
+		}
+		data->bst_rd++;
+		data->long_rd = current->steps;
+		current = current->next;
+	}
+}

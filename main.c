@@ -23,10 +23,14 @@ int main(void)
 	current->step = new_step(find_start(data));
 	roads = current;
 	find_roads(data, &roads, current, find_start(data));
+	count_steps(roads, &data);
 	ft_printf("{blu}All roads:{eoc}\n");
 	print_roads(data, roads);
 	find_best_roads(&roads);
-	ft_printf("{red}Best roads:{eoc}\n");
+	count_steps(roads, &data);
+	ft_printf("{red}Best roads (%d):{eoc}\n", data.bst_rd);
 	print_roads(data, roads);
+	ft_printf("-----------------------\n");
+	conductor(data, roads);
 	return 0;
 }
