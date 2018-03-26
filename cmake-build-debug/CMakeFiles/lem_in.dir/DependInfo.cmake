@@ -96,6 +96,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/vfil/CLionProjects/lem-in/lists_manipulations.c" "/Users/vfil/CLionProjects/lem-in/cmake-build-debug/CMakeFiles/lem_in.dir/lists_manipulations.c.o"
   "/Users/vfil/CLionProjects/lem-in/main.c" "/Users/vfil/CLionProjects/lem-in/cmake-build-debug/CMakeFiles/lem_in.dir/main.c.o"
   "/Users/vfil/CLionProjects/lem-in/parse.c" "/Users/vfil/CLionProjects/lem-in/cmake-build-debug/CMakeFiles/lem_in.dir/parse.c.o"
+  "/Users/vfil/CLionProjects/lem-in/print_bonus.c" "/Users/vfil/CLionProjects/lem-in/cmake-build-debug/CMakeFiles/lem_in.dir/print_bonus.c.o"
   "/Users/vfil/CLionProjects/lem-in/print_res.c" "/Users/vfil/CLionProjects/lem-in/cmake-build-debug/CMakeFiles/lem_in.dir/print_res.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")

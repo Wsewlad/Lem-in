@@ -25,7 +25,7 @@ int 	check_intersection(t_road *prev, t_road *current)
 		{
 			if (stp->r == stp2->r)
 			{
-				ft_printf("%d\n", stp->r);
+				//ft_printf("%d\n", stp->r);
 				return (1);
 			}
 			stp2 = stp2->next;
@@ -95,7 +95,25 @@ void	count_steps(t_road *roads, t_data *data)
 			stp = stp->next;
 		}
 		data->bst_rd++;
-		data->long_rd = current->steps;
+		data->lng_rd = current->steps;
 		current = current->next;
+	}
+}
+
+void	check_rdlns(t_road *roads, t_data *data)
+{
+	t_road	*rd;
+	int 	i;
+
+	data->lns = (int*)malloc(sizeof(int) * data->bst_rd);
+	data->lns2 = (int*)malloc(sizeof(int) * data->bst_rd);
+	rd = roads;
+	i = 0;
+	while (rd)
+	{
+		data->lns[i] = rd->steps;
+		data->lns2[i] = rd->steps;
+		i++;
+		rd = rd->next;
 	}
 }

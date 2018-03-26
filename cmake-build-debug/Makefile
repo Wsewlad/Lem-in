@@ -2607,6 +2607,33 @@ parse.c.s:
 	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/parse.c.s
 .PHONY : parse.c.s
 
+print_bonus.o: print_bonus.c.o
+
+.PHONY : print_bonus.o
+
+# target to build an object file
+print_bonus.c.o:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/print_bonus.c.o
+.PHONY : print_bonus.c.o
+
+print_bonus.i: print_bonus.c.i
+
+.PHONY : print_bonus.i
+
+# target to preprocess a source file
+print_bonus.c.i:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/print_bonus.c.i
+.PHONY : print_bonus.c.i
+
+print_bonus.s: print_bonus.c.s
+
+.PHONY : print_bonus.s
+
+# target to generate assembly for a file
+print_bonus.c.s:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/print_bonus.c.s
+.PHONY : print_bonus.c.s
+
 print_res.o: print_res.c.o
 
 .PHONY : print_res.o
@@ -2919,6 +2946,9 @@ help:
 	@echo "... parse.o"
 	@echo "... parse.i"
 	@echo "... parse.s"
+	@echo "... print_bonus.o"
+	@echo "... print_bonus.i"
+	@echo "... print_bonus.s"
 	@echo "... print_res.o"
 	@echo "... print_res.i"
 	@echo "... print_res.s"

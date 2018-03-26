@@ -362,6 +362,9 @@
 		<Unit filename="/Users/vfil/CLionProjects/lem-in/parse.c">
 			<Option target="lem_in"/>
 		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/print_bonus.c">
+			<Option target="lem_in"/>
+		</Unit>
 		<Unit filename="/Users/vfil/CLionProjects/lem-in/print_res.c">
 			<Option target="lem_in"/>
 		</Unit>

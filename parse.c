@@ -123,6 +123,6 @@ void	parse_data(t_data *data)
 	count_links(map, data);
 	parse_rooms(map, data);
 	parse_links(map, data);
-	//print_map(map);
+	print_map(map);
 	//print_data(data);
 }

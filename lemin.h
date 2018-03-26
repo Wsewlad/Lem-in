@@ -39,7 +39,9 @@ typedef struct	s_data
 	int 		l_nb;
 	t_link		*links;
 	int 		bst_rd;
-	int 		long_rd;
+	int 		lng_rd;
+	int 		*lns;
+	int 		*lns2;
 }				t_data;
 
 typedef struct		s_stepi
@@ -81,16 +83,19 @@ void			road_append(t_road *head, t_road *new);
 t_road			*copy_road(t_road *road);
 void			del_road(t_road **road);
 void		 	find_best_roads(t_road **roads);
+void			check_rdlns(t_road *roads, t_data *data);
 void			del_not_full(t_data data, t_road **head, t_road **current);
 void		 	find_last_stp(t_road *current, int *start);
 void			count_steps(t_road *roads, t_data *data);
 void			conductor(t_data data, t_road *roads);
 t_stepi		 	**lst2array(t_data data, t_road *roads);
+void			is_last_ant_home(t_data data, t_stepi **roadsi);
 
 void			print_map(t_list *map);
 void			print_error(char *str);
 void			print_data(t_data *data);
 void		 	print_roads(t_data data, t_road	*roads);
 void		 	print_roads_arr(t_data data, t_stepi **roadsi, t_road *roads);
+void			print_res(t_data data, t_stepi **roadsi);
 
 #endif
