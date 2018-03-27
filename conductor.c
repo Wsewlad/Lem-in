@@ -12,44 +12,45 @@
 
 #include "lemin.h"
 
-void	conductor(t_data data, t_road *roads)
+void	go_ant(t_data data, t_road *roads, t_stepi **roadsi, int *ant)
 {
 	t_road	*rd;
-	t_stepi	**roadsi;
-	int 	i;
+	int		i;
 	int 	j;
+	int 	lant;
+
+	i = 0;
+	rd = roads;
+	while (rd)
+	{
+		j = rd->steps - 1;
+		while (j > 0)
+		{
+			lant = *ant <= data.ants ? *ant : 0;
+			roadsi[i][j].ant = j > 1 ? roadsi[i][j - 1].ant : lant;
+			j--;
+		}
+		(*ant)++;
+		rd = rd->next;
+		i++;
+	}
+}
+
+void	conductor(t_data data, t_road *roads)
+{
+	t_stepi	**roadsi;
 	int 	ant;
-	int 	k;
 
 	ant = 1;
 	roadsi = lst2array(data, roads);
-	if (data.bst_rd > 1)
-		k = data.ants + data.bst_rd - (data.lng_rd - 1);
-	else
-		k = data.ants + (data.lng_rd - 1);
-	ft_printf("{mag}k = %d{eoc}\n", k);
-	while (k)
+	while (1)
 	{
-		i = 0;
-		rd = roads;
-		while (rd)
-		{
-			j = rd->steps - 1;
-			while (j > 0)
-			{
-				roadsi[i][j].ant = j > 1 ? roadsi[i][j - 1].ant : ant;
-				j--;
-			}
-			ant++;
-			rd = rd->next;
-			i++;
-		}
-		print_roads_arr(data, roadsi, roads);
-		ft_printf("\n");
+		go_ant(data, roads, roadsi, &ant);
+		//print_roads_arr(data, roadsi, roads);
+		//ft_printf("\n");
 		print_res(data, roadsi);
 		ft_printf("\n");
-		k--;
-		//is_last_ant_home(data, roadsi);
+		is_last_ant_home(data, roadsi);
 	}
 }
 
@@ -87,9 +88,9 @@ void		is_last_ant_home(t_data data, t_stepi **roadsi)
 	int i;
 
 	i = 0;
-	while (i < data.bst_rd - 1)
+	while (i < data.bst_rd)
 	{
-		if (roadsi[i][data.lns2[i]].ant == data.ants)
+		if (roadsi[i][data.lns2[i] - 1].ant == data.ants)
 			exit(1);
 		i++;
 	}

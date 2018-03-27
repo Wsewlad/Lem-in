@@ -44,7 +44,7 @@ t_list	*parse_room(t_list *map, t_data *data, char type, int *r)
 	int	sp;
 	char **splt;
 
-	if (((char*)map->content)[0] != '#')
+	while (((char*)map->content)[0] != '#')
 	{
 		sp = check_spdf(map, ' ');
 		if (sp == 2)
@@ -75,6 +75,11 @@ void	parse_rooms(t_list *map, t_data *data)
 			parse_room(map, data, 's', &r);
 		}
 		else if (ft_strcmp(map->content, "##end") == 0)
+		{
+			map = map->next;
+			parse_room(map, data, 'e', &r);
+		}
+		else if (ft_strcmp(map->content, "##") == 0)
 		{
 			map = map->next;
 			parse_room(map, data, 'e', &r);
@@ -124,5 +129,5 @@ void	parse_data(t_data *data)
 	parse_rooms(map, data);
 	parse_links(map, data);
 	print_map(map);
-	//print_data(data);
+	print_data(data);
 }

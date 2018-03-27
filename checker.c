@@ -23,7 +23,11 @@ void	count_ants(t_list *map, t_data *data)
 			print_error(map->content);
 		i++;
 	}
+	if (i > 9)
+		print_error(map->content);
 	data->ants = ft_atoi(map->content);
+	if (data->ants <= 0)
+		print_error(map->content);
 }
 
 int	check_spdf(t_list *map, char c)

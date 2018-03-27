@@ -24,16 +24,19 @@ void		print_map(t_list *map)
 		free(map);
 		map = buf;
 	}
+	ft_printf("\n");
 }
 
 void		print_error(char *str)
 {
 	ft_printf("{red}ERROR: '%s'{eoc}\n", str);
+	/*str = NULL;
+	ft_printf("ERROR\n");*/
 	exit(1);
 }
 
 
-static void	check_last_ant(t_data *data, t_stepi **roadsi, int i)
+static void	check_last_ant(t_data *data, t_stepi **roadsi, int i, int *in)
 {
 	int	rd_len;
 
@@ -42,7 +45,11 @@ static void	check_last_ant(t_data *data, t_stepi **roadsi, int i)
 	{
 		if (roadsi[i][rd_len].ant > 0 && roadsi[i][rd_len].ant <= data->ants)
 		{
-			ft_printf("L%d-%d ", roadsi[i][rd_len].ant, roadsi[i][rd_len].r);
+			if (*in)
+				ft_printf(" ");
+			ft_printf("L%d-%s", roadsi[i][rd_len].ant, \
+			data->rooms[roadsi[i][rd_len].r].name);
+			*in = 1;
 			return ;
 		}
 		rd_len--;
@@ -53,9 +60,11 @@ static void	check_last_ant(t_data *data, t_stepi **roadsi, int i)
 void	print_res(t_data data, t_stepi **roadsi)
 {
 	int i;
+	int in;
 
 	i = 0;
-	while (data.lns2[i])
+	in = 0;
+	while (i < data.bst_rd)
 	{
 		data.lns[i] = data.lns2[i];
 		i++;
@@ -65,7 +74,7 @@ void	print_res(t_data data, t_stepi **roadsi)
 		i = 0;
 		while (i < data.bst_rd)
 		{
-			check_last_ant(&data, roadsi, i);
+			check_last_ant(&data, roadsi, i, &in);
 			data.lns[i]--;
 			i++;
 		}
