@@ -15,17 +15,22 @@
 int main(void)
 {
 	t_data	data;
+	t_list	*map;
 	t_road	*roads;
 	t_road	*current;
 
-	parse_data(&data);
+	map = NULL;
+	parse_data(&data, &map);
 	current = new_road();
 	current->step = new_step(find_start(data));
+	//ft_printf("Hello!\n");
 	roads = current;
 	find_roads(data, &roads, current, find_start(data));
 	count_steps(roads, &data);
-	ft_printf("{blu}All roads:{eoc}\n");
-	print_roads(data, roads);
+	print_map(map);
+	//print_data(data);
+	//ft_printf("{blu}All roads:{eoc}\n");
+	//print_roads(data, roads);
 	find_best_roads(&roads);
 	count_steps(roads, &data);
 	check_rdlns(roads, &data);

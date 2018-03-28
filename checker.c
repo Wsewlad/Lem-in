@@ -103,7 +103,7 @@ int 	check_rindex(t_data *data, char *name)
 		i++;
 	if (i == data->r_nb)
 	{
-		ft_printf("{red}Wrong link, non-existent room!{eoc}\n");
+		//ft_printf("{red}Wrong link, non-existent room!{eoc}\n");
 		print_error(name);
 	}
 	return (i);

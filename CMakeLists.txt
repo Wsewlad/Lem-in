@@ -24,4 +24,4 @@ set(SUBSET libft/ft_arriter.c libft/ft_atoi.c libft/ft_bzero.c libft/ft_chrjoin_
         )
 
 add_executable(lem_in lemin.h main.c parse.c checker.c print_res.c find_road.c lists_manipulations.c
-        find_best_roads.c conductor.c print_bonus.c ${SUBSET})
+        find_best_roads.c conductor.c print_bonus.c checker2.c ${SUBSET})

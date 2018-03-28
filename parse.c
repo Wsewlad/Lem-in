@@ -29,8 +29,7 @@ t_list *parse_map(void)
 	map = lst;
 	while (get_next_line(0, &line) > 0)
 	{
-		if (!(*line) || *line == 'L')
-			print_error(line);
+		line_ok(line);
 		lst->next = ft_lstnew(line, ft_strlen(line) + 1);
 		lst = lst->next;
 		ft_strdel(&line);
@@ -44,12 +43,17 @@ t_list	*parse_room(t_list *map, t_data *data, char type, int *r)
 	int	sp;
 	char **splt;
 
-	while (((char*)map->content)[0] != '#')
+	if (((char*)map->content)[0] != '#')
 	{
 		sp = check_spdf(map, ' ');
 		if (sp == 2)
 		{
+			sp = 0;
 			splt = ft_strsplit(map->content, ' ');
+			while (splt[sp])
+				sp++;
+			if (sp != 3 || !ft_isdigit(splt[1][0]) || !ft_isdigit(splt[2][0]))
+				print_error("wrong room");
 			data->rooms[*r].name = ft_strdup(splt[0]);
 			data->rooms[*r].x = ft_atoi(splt[1]);
 			data->rooms[*r].y = ft_atoi(splt[2]);
@@ -75,11 +79,6 @@ void	parse_rooms(t_list *map, t_data *data)
 			parse_room(map, data, 's', &r);
 		}
 		else if (ft_strcmp(map->content, "##end") == 0)
-		{
-			map = map->next;
-			parse_room(map, data, 'e', &r);
-		}
-		else if (ft_strcmp(map->content, "##") == 0)
 		{
 			map = map->next;
 			parse_room(map, data, 'e', &r);
@@ -118,16 +117,14 @@ void	parse_links(t_list *map, t_data *data)
 	}
 }
 
-void	parse_data(t_data *data)
+void	parse_data(t_data *data, t_list **map)
 {
-	t_list *map;
-
-	map = parse_map();
-	count_ants(map, data);
-	count_rooms(map, data);
-	count_links(map, data);
-	parse_rooms(map, data);
-	parse_links(map, data);
-	print_map(map);
-	print_data(data);
+	*map = parse_map();
+	count_ants(*map, data);
+	count_rooms(*map, data);
+	count_links(*map, data);
+	parse_rooms(*map, data);
+	check_es_room(data);
+	check_room_identity(data);
+	parse_links(*map, data);
 }

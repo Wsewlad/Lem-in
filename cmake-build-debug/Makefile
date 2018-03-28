@@ -150,6 +150,33 @@ checker.c.s:
 	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/checker.c.s
 .PHONY : checker.c.s
 
+checker2.o: checker2.c.o
+
+.PHONY : checker2.o
+
+# target to build an object file
+checker2.c.o:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/checker2.c.o
+.PHONY : checker2.c.o
+
+checker2.i: checker2.c.i
+
+.PHONY : checker2.i
+
+# target to preprocess a source file
+checker2.c.i:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/checker2.c.i
+.PHONY : checker2.c.i
+
+checker2.s: checker2.c.s
+
+.PHONY : checker2.s
+
+# target to generate assembly for a file
+checker2.c.s:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/checker2.c.s
+.PHONY : checker2.c.s
+
 conductor.o: conductor.c.o
 
 .PHONY : conductor.o
@@ -2673,6 +2700,9 @@ help:
 	@echo "... checker.o"
 	@echo "... checker.i"
 	@echo "... checker.s"
+	@echo "... checker2.o"
+	@echo "... checker2.i"
+	@echo "... checker2.s"
 	@echo "... conductor.o"
 	@echo "... conductor.i"
 	@echo "... conductor.s"

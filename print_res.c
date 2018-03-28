@@ -30,8 +30,8 @@ void		print_map(t_list *map)
 void		print_error(char *str)
 {
 	ft_printf("{red}ERROR: '%s'{eoc}\n", str);
-	/*str = NULL;
-	ft_printf("ERROR\n");*/
+	str = NULL;
+	ft_printf("ERROR\n");
 	exit(1);
 }
 

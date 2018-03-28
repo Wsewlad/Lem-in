@@ -64,7 +64,9 @@ typedef struct		s_road
 	struct s_road	*next;
 }					t_road;
 
-void			parse_data(t_data *data);
+void			parse_data(t_data *data, t_list **map);
+void			line_ok(char *line);
+void			check_room_identity(t_data *data);
 t_list			*parse_map(void);
 int				check_spdf(t_list *map, char c);
 void			count_ants(t_list *map, t_data *data);
@@ -73,6 +75,7 @@ void			count_links(t_list *map, t_data *data);
 void			parse_rooms(t_list *map, t_data *data);
 t_list			*parse_room(t_list *map, t_data *data, char type, int *r);
 void			parse_links(t_list *map, t_data *data);
+void			check_es_room(t_data *data);
 int			 	check_rindex(t_data *data, char *name);
 void			find_roads(t_data data, t_road **roads, t_road *current, int start);
 int			 	find_start(t_data data);

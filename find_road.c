@@ -46,8 +46,10 @@ int 	find_start(t_data data)
 	int i;
 
 	i = 0;
-	while (data.rooms[i].type != 's')
+	while (i < data.r_nb && data.rooms[i].type != 's')
 		i++;
+	if (i == data.r_nb)
+		print_error("No start room");
 	return (i);
 }
 
