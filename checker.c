@@ -14,23 +14,31 @@
 
 void	count_ants(t_list *map, t_data *data)
 {
-	int	i;
+	t_list	*map2;
+	int		i;
 
 	i = 0;
-	while (((char*)map->content)[i])
+	map2 = map;
+	while (((char*)map2->content)[i] == '#')
+		map2 = map2->next;
+	while (((char*)map2->content)[i])
 	{
-		if (!ft_isdigit(((char*)map->content)[i]))
-			print_error(map->content);
+		if (!ft_isdigit(((char*)map2->content)[i]))
+			print_error(map2->content, data);
 		i++;
 	}
 	if (i > 9)
-		print_error(map->content);
-	data->ants = ft_atoi(map->content);
+		print_error(map2->content, data);
+	data->ants = ft_atoi(map2->content);
 	if (data->ants <= 0)
-		print_error(map->content);
+		print_error(map2->content, data);
 }
 
-int	check_spdf(t_list *map, char c)
+/*
+** Count how many times c (char) occurs in line
+*/
+
+int		check_spdf(t_list *map, char c)
 {
 	int i;
 	int d;
@@ -60,14 +68,14 @@ void	count_rooms(t_list *map, t_data *data)
 			if (sp == 2)
 				data->r_nb++;
 			else if (sp)
-				print_error(map->content);
+				print_error(map->content, data);
 		}
 		map = map->next;
 	}
 	if (data->r_nb)
 		data->rooms = (t_room*)malloc(sizeof(t_room) * data->r_nb);
 	else
-		print_error("0 rooms");
+		print_error("0 rooms", data);
 }
 
 void	count_links(t_list *map, t_data *data)
@@ -84,17 +92,17 @@ void	count_links(t_list *map, t_data *data)
 			if (df == 1)
 				data->l_nb++;
 			else if (df > 1)
-				print_error(map->content);
+				print_error(map->content, data);
 		}
 		map = map->next;
 	}
 	if (data->l_nb)
 		data->links = (t_link*)malloc(sizeof(t_link) * data->l_nb);
 	else
-		print_error("0 links");
+		print_error("0 links", data);
 }
 
-int 	check_rindex(t_data *data, char *name)
+int		check_rindex(t_data *data, char *name)
 {
 	int i;
 
@@ -102,9 +110,6 @@ int 	check_rindex(t_data *data, char *name)
 	while (i < data->r_nb && ft_strcmp(data->rooms[i].name, name) != 0)
 		i++;
 	if (i == data->r_nb)
-	{
-		//ft_printf("{red}Wrong link, non-existent room!{eoc}\n");
-		print_error(name);
-	}
+		print_error(name, data);
 	return (i);
 }

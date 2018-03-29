@@ -258,6 +258,33 @@ find_road.c.s:
 	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/find_road.c.s
 .PHONY : find_road.c.s
 
+find_road2.o: find_road2.c.o
+
+.PHONY : find_road2.o
+
+# target to build an object file
+find_road2.c.o:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/find_road2.c.o
+.PHONY : find_road2.c.o
+
+find_road2.i: find_road2.c.i
+
+.PHONY : find_road2.i
+
+# target to preprocess a source file
+find_road2.c.i:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/find_road2.c.i
+.PHONY : find_road2.c.i
+
+find_road2.s: find_road2.c.s
+
+.PHONY : find_road2.s
+
+# target to generate assembly for a file
+find_road2.c.s:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/find_road2.c.s
+.PHONY : find_road2.c.s
+
 libft/ft_arriter.o: libft/ft_arriter.c.o
 
 .PHONY : libft/ft_arriter.o
@@ -2712,6 +2739,9 @@ help:
 	@echo "... find_road.o"
 	@echo "... find_road.i"
 	@echo "... find_road.s"
+	@echo "... find_road2.o"
+	@echo "... find_road2.i"
+	@echo "... find_road2.s"
 	@echo "... libft/ft_arriter.o"
 	@echo "... libft/ft_arriter.i"
 	@echo "... libft/ft_arriter.s"

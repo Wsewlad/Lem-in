@@ -12,6 +12,10 @@
 
 #include "lemin.h"
 
+/*
+** Print input
+*/
+
 void		print_map(t_list *map)
 {
 	t_list	*buf;
@@ -27,14 +31,21 @@ void		print_map(t_list *map)
 	ft_printf("\n");
 }
 
-void		print_error(char *str)
+void		print_error(char *str, t_data *data)
 {
-	ft_printf("{red}ERROR: '%s'{eoc}\n", str);
-	str = NULL;
-	ft_printf("ERROR\n");
+	if (data->flag.d)
+		ft_printf("{red}ERROR: '%s'{eoc}\n", str);
+	else
+	{
+		str = NULL;
+		ft_printf("ERROR\n");
+	}
 	exit(1);
 }
 
+/*
+** Check last ant and print it location
+*/
 
 static void	check_last_ant(t_data *data, t_stepi **roadsi, int i, int *in)
 {
@@ -57,7 +68,7 @@ static void	check_last_ant(t_data *data, t_stepi **roadsi, int i, int *in)
 	}
 }
 
-void	print_res(t_data data, t_stepi **roadsi)
+void		print_res(t_data data, t_stepi **roadsi)
 {
 	int i;
 	int in;

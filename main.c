@@ -12,13 +12,19 @@
 
 #include "lemin.h"
 
-int main(void)
+void	init_flags(int ac, char **av, t_data *data)
+{
+
+}
+
+int	main(int argc, char **argv)
 {
 	t_data	data;
 	t_list	*map;
 	t_road	*roads;
 	t_road	*current;
 
+	init_flags(argc, argv, &data);
 	map = NULL;
 	parse_data(&data, &map);
 	current = new_road();
@@ -28,9 +34,9 @@ int main(void)
 	find_roads(data, &roads, current, find_start(data));
 	count_steps(roads, &data);
 	print_map(map);
-	//print_data(data);
+	//print_data(&data);
 	//ft_printf("{blu}All roads:{eoc}\n");
-	//print_roads(data, roads);
+	print_roads(data, roads);
 	find_best_roads(&roads);
 	count_steps(roads, &data);
 	check_rdlns(roads, &data);
@@ -38,5 +44,5 @@ int main(void)
 	//print_roads(data, roads);
 	//ft_printf("-----------------------\n");
 	conductor(data, roads);
-	return 0;
+	return (0);
 }

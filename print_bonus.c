@@ -12,6 +12,10 @@
 
 #include "lemin.h"
 
+/*
+** Print parsed data (ants, rooms, links)
+*/
+
 void	print_data(t_data *data)
 {
 	int i;
@@ -41,11 +45,15 @@ void	print_data(t_data *data)
 	ft_printf("\n");
 }
 
-void 	print_roads(t_data data, t_road	*roads)
+/*
+** Print roads from list
+*/
+
+void	print_roads(t_data data, t_road *roads)
 {
 	t_road	*current;
 	t_step	*stp;
-	int i;
+	int		i;
 
 	current = roads;
 	i = 1;
@@ -56,23 +64,9 @@ void 	print_roads(t_data data, t_road	*roads)
 		while (stp)
 		{
 			if (data.rooms[stp->r].type == 'e')
-			{
-				if (stp->ant > 0 && stp->ant <= data.ants)
-					ft_printf("%s {yel}L%d{eoc} | {blu}len: %d{eoc}", \
-					data.rooms[stp->r].name, stp->ant, current->steps);
-				else
-					ft_printf("%s {blu}L%d{eoc} | {blu}len: %d{eoc}", \
-					data.rooms[stp->r].name, stp->ant, current->steps);
-			}
+				print_last_ant_in_room(stp->ant, stp->r, data, current->steps);
 			else
-			{
-				if (stp->ant > 0 && stp->ant <= data.ants)
-					ft_printf("%s {yel}L%d{eoc} {blu}->{eoc} ", \
-					data.rooms[stp->r].name, stp->ant);
-				else
-					ft_printf("%s {blu}L%d{eoc} {blu}->{eoc} ", \
-					data.rooms[stp->r].name, stp->ant);
-			}
+				print_ant_in_room(stp->ant, stp->r, data);
 			stp = stp->next;
 		}
 		ft_printf("\n");
@@ -82,7 +76,11 @@ void 	print_roads(t_data data, t_road	*roads)
 	ft_printf("\n");
 }
 
-void 	print_roads_arr(t_data data, t_stepi **roadsi, t_road *roads)
+/*
+** Print roads from array
+*/
+
+void	print_roads_arr(t_data data, t_stepi **roadsi, t_road *roads)
 {
 	int i;
 	int j;
@@ -96,25 +94,32 @@ void 	print_roads_arr(t_data data, t_stepi **roadsi, t_road *roads)
 		while (j < roads->steps)
 		{
 			if (data.rooms[roadsi[i][j].r].type == 'e')
-			{
-				if (roadsi[i][j].ant > 0 && roadsi[i][j].ant <= data.ants)
-					ft_printf("{yel}L%d{eoc} %s | {blu}len: %d{eoc}", roadsi[i][j].ant, data.rooms[roadsi[i][j].r].name, \
-				roads->steps);
-				else
-					ft_printf("{blu}L%d{eoc} %s | {blu}len: %d{eoc}", roadsi[i][j].ant, data.rooms[roadsi[i][j].r].name, \
-				roads->steps);
-			}
+				print_last_ant_in_room(roadsi[i][j].ant, \
+				roadsi[i][j].r, data, roads->steps);
 			else
-			{
-				if (roadsi[i][j].ant > 0 && roadsi[i][j].ant <= data.ants)
-					ft_printf("{yel}L%d{eoc} %s {blu}->{eoc} ", roadsi[i][j].ant, data.rooms[roadsi[i][j].r].name);
-				else
-					ft_printf("{blu}L%d{eoc} %s {blu}->{eoc} ", roadsi[i][j].ant, data.rooms[roadsi[i][j].r].name);
-			}
+				print_ant_in_room(roadsi[i][j].ant, roadsi[i][j].r, data);
 			j++;
 		}
 		ft_printf("\n");
 		roads = roads->next;
 		i++;
 	}
+}
+
+void	print_ant_in_room(int ant, int r, t_data data)
+{
+	if (ant > 0 && ant <= data.ants)
+		ft_printf("{yel}L%d{eoc} %s {blu}->{eoc} ", ant, data.rooms[r].name);
+	else
+		ft_printf("{blu}L%d{eoc} %s {blu}->{eoc} ", ant, data.rooms[r].name);
+}
+
+void	print_last_ant_in_room(int ant, int r, t_data data, int steps)
+{
+	if (ant > 0 && ant <= data.ants)
+		ft_printf("{yel}L%d{eoc} %s | {blu}len: %d{eoc}", \
+		ant, data.rooms[r].name, steps);
+	else
+		ft_printf("{blu}L%d{eoc} %s | {blu}len: %d{eoc}", \
+		ant, data.rooms[r].name, steps);
 }

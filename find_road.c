@@ -12,27 +12,28 @@
 
 #include "lemin.h"
 
+/*
+** Find all roads
+*/
+
 void	find_roads(t_data data, t_road **roads, t_road *current, int start)
 {
 	int		i;
-	t_road	*new;
 	int		nw;
 
 	while (current)
 	{
 		i = 0;
-		data.rooms[start].type = (char)(data.rooms[start].type != 'e' ? 'v' : 'e');
+		data.rooms[start].type = \
+		(char)(data.rooms[start].type != 'e' ? 'v' : 'e');
 		while (i < data.l_nb && data.rooms[start].type != 'e')
 		{
 			if ((data.links[i].r1 == start || data.links[i].r2 == start))
 			{
-				nw = data.links[i].r1 == start ? data.links[i].r2 : data.links[i].r1;
+				nw = data.links[i].r1 == start ? data.links[i].r2 : \
+				data.links[i].r1;
 				if (data.rooms[nw].type != 'v')
-				{
-					new = copy_road(current);
-					step_append(new->step, new_step(nw));
-					road_append(current, new);
-				}
+					add_extended_road(current, nw);
 			}
 			i++;
 		}
@@ -41,30 +42,47 @@ void	find_roads(t_data data, t_road **roads, t_road *current, int start)
 	}
 }
 
-int 	find_start(t_data data)
+void	add_extended_road(t_road *current, int nw)
 {
-	int i;
+	t_road	*new;
 
-	i = 0;
-	while (i < data.r_nb && data.rooms[i].type != 's')
-		i++;
-	if (i == data.r_nb)
-		print_error("No start room");
-	return (i);
+	new = copy_road(current);
+	step_append(new->step, new_step(nw));
+	road_append(current, new);
 }
 
-void 	find_last_stp(t_road *current, int *start)
-{
-	t_step	*stp;
+/*
+** Delete all not completed roads and relink list of roads
+*/
 
-	if (current)
+void	del_not_full(t_data data, t_road **head, t_road **current)
+{
+	int		last;
+	int		nxt;
+	t_road	*lst;
+
+	find_last_stp(*current, &last);
+	if (data.rooms[last].type != 'e')
 	{
-		stp = current->step;
-		while (stp->next)
-			stp = stp->next;
-		*start = stp->r;
+		if (*head == *current)
+		{
+			lst = (*head)->next;
+			if (!lst)
+				print_error("No full roads!", &data);
+			del_road(head);
+			*head = lst;
+			*current = *head;
+			return ;
+		}
+		del_rd(head, current, &nxt);
 	}
+	else
+		*current = (*current)->next;
 }
+
+/*
+** Delete road
+*/
 
 void	del_road(t_road **road)
 {
@@ -83,33 +101,19 @@ void	del_road(t_road **road)
 	}
 }
 
-void	del_not_full(t_data data, t_road **head, t_road **current)
+/*
+** Find last room index in road
+*/
+
+void	find_last_stp(t_road *current, int *start)
 {
-	int 	last;
-	t_road	*lst;
+	t_step	*stp;
 
-	find_last_stp(*current, &last);
-	if (data.rooms[last].type != 'e')
+	if (current)
 	{
-		if (*head == *current)
-		{
-
-			lst = (*head)->next;
-			if (!lst)
-				print_error("No full roads!");
-			del_road(head);
-			*head = lst;
-			*current = *head;
-			return ;
-		}
-		lst = *head;
-		while (lst->next && lst->next != *current)
-			lst = lst->next;
-		if (lst->next)
-			lst->next = lst->next->next;
-		del_road(current);
-		*current = lst->next;
+		stp = current->step;
+		while (stp->next)
+			stp = stp->next;
+		*start = stp->r;
 	}
-	else
-		*current = (*current)->next;
 }

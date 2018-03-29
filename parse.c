@@ -12,24 +12,29 @@
 
 #include "lemin.h"
 
-t_list *parse_map(void)
+/*
+** Validate input and save it in list
+*/
+
+t_list	*parse_map(t_data *data)
 {
 	t_list	*map;
 	t_list	*lst;
-	char 	*line;
+	char	*line;
+	int		is_ant;
 
+	is_ant = 0;
 	lst = NULL;
 	if (get_next_line(0, &line) > 0)
 	{
-		if (!(*line))
-			print_error(line);
+		line_ok(line, &is_ant, data);
 		lst = ft_lstnew(line, ft_strlen(line));
 		ft_strdel(&line);
 	}
 	map = lst;
 	while (get_next_line(0, &line) > 0)
 	{
-		line_ok(line);
+		line_ok(line, &is_ant, data);
 		lst->next = ft_lstnew(line, ft_strlen(line) + 1);
 		lst = lst->next;
 		ft_strdel(&line);
@@ -40,20 +45,19 @@ t_list *parse_map(void)
 
 t_list	*parse_room(t_list *map, t_data *data, char type, int *r)
 {
-	int	sp;
-	char **splt;
+	int		i;
+	char	**splt;
 
 	if (((char*)map->content)[0] != '#')
 	{
-		sp = check_spdf(map, ' ');
-		if (sp == 2)
+		if (check_spdf(map, ' ') == 2)
 		{
-			sp = 0;
+			i = 0;
 			splt = ft_strsplit(map->content, ' ');
-			while (splt[sp])
-				sp++;
-			if (sp != 3 || !ft_isdigit(splt[1][0]) || !ft_isdigit(splt[2][0]))
-				print_error("wrong room");
+			while (splt[i])
+				i++;
+			if (i != 3 || !ft_isdigit(splt[1][0]) || !ft_isdigit(splt[2][0]))
+				print_error("wrong room", data);
 			data->rooms[*r].name = ft_strdup(splt[0]);
 			data->rooms[*r].x = ft_atoi(splt[1]);
 			data->rooms[*r].y = ft_atoi(splt[2]);
@@ -63,7 +67,7 @@ t_list	*parse_room(t_list *map, t_data *data, char type, int *r)
 			(*r)++;
 		}
 	}
-	return(map);
+	return (map);
 }
 
 void	parse_rooms(t_list *map, t_data *data)
@@ -75,33 +79,32 @@ void	parse_rooms(t_list *map, t_data *data)
 	{
 		if (ft_strcmp(map->content, "##start") == 0)
 		{
-			map = map->next;
-			parse_room(map, data, 's', &r);
+			if ((map = map->next))
+				parse_room(map, data, 's', &r);
 		}
 		else if (ft_strcmp(map->content, "##end") == 0)
 		{
-			map = map->next;
-			parse_room(map, data, 'e', &r);
+			if ((map = map->next))
+				parse_room(map, data, 'e', &r);
 		}
 		else
 			parse_room(map, data, 'c', &r);
-		map = map->next;
+		if (map)
+			map = map->next;
 	}
 }
 
 void	parse_links(t_list *map, t_data *data)
 {
-	int	df;
-	char **splt;
-	int l;
+	char	**splt;
+	int		l;
 
 	l = 0;
 	while (map)
 	{
 		if (((char*)map->content)[0] != '#')
 		{
-			df = check_spdf(map, '-');
-			if (df == 1)
+			if (check_spdf(map, '-') == 1)
 			{
 				splt = ft_strsplit(map->content, '-');
 				data->links[l].r1 = check_rindex(data, splt[0]);
@@ -119,7 +122,7 @@ void	parse_links(t_list *map, t_data *data)
 
 void	parse_data(t_data *data, t_list **map)
 {
-	*map = parse_map();
+	*map = parse_map(data);
 	count_ants(*map, data);
 	count_rooms(*map, data);
 	count_links(*map, data);
@@ -127,4 +130,5 @@ void	parse_data(t_data *data, t_list **map)
 	check_es_room(data);
 	check_room_identity(data);
 	parse_links(*map, data);
+	check_links_identity(data);
 }

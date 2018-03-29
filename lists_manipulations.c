@@ -58,7 +58,7 @@ t_road	*copy_road(t_road *road)
 	t_road	*new;
 	t_step	*stp;
 
-	new	= (t_road*)malloc(sizeof(t_road));
+	new = (t_road*)malloc(sizeof(t_road));
 	new->steps = 0;
 	stp = road->step;
 	new->step = new_step(stp->r);
