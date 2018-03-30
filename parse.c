@@ -107,13 +107,16 @@ void	parse_links(t_list *map, t_data *data)
 			if (check_spdf(map, '-') == 1)
 			{
 				splt = ft_strsplit(map->content, '-');
-				data->links[l].r1 = check_rindex(data, splt[0]);
-				data->links[l].r1_t = data->rooms[data->links[l].r1].type;
-				data->links[l].r2 = check_rindex(data, splt[1]);
-				data->links[l].r2_t = data->rooms[data->links[l].r2].type;
+				if (check_links_identity(data, l, check_rindex(data, splt[0]), \
+				check_rindex(data, splt[1])))
+				{
+					ft_memdel(&(map->content));
+					map->content = ft_strdup(" - ");
+				}
+				else
+					parse_links_helper(data, splt, &l);
 				ft_arriter(splt, free);
 				free(splt);
-				l++;
 			}
 		}
 		map = map->next;
@@ -130,5 +133,4 @@ void	parse_data(t_data *data, t_list **map)
 	check_es_room(data);
 	check_room_identity(data);
 	parse_links(*map, data);
-	check_links_identity(data);
 }

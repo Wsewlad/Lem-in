@@ -112,30 +112,29 @@ void		check_es_room(t_data *data)
 		print_error("Problem with end room", data);
 }
 
-void		check_links_identity(t_data *data)
+int			check_links_identity(t_data *data, int l, int r1, int r2)
 {
 	int i;
-	int j;
 
 	i = 0;
-	while (i < data->l_nb)
+	if (r1 == r2)
 	{
-		j = 0;
-		while (j < data->l_nb)
+		data->l_nb--;
+		return (1);
+	}
+	while (i < l)
+	{
+		if (data->links[i].r1 == r1 && data->links[i].r2 == r2)
 		{
-			if (data->links[j].r1 == data->links[j].r2)
-				print_error("Link to the same room", data);
-			if (i != j)
-			{
-				if (data->links[i].r1 == data->links[j].r1 && \
-			data->links[i].r2 == data->links[j].r2)
-					print_error("Same link", data);
-				if (data->links[i].r1 == data->links[j].r2 && \
-			data->links[i].r2 == data->links[j].r1)
-					print_error("Same link reversed", data);
-			}
-			j++;
+			data->l_nb--;
+			return (1);
+		}
+		if (data->links[i].r1 == r2 && data->links[i].r2 == r1)
+		{
+			data->l_nb--;
+			return (1);
 		}
 		i++;
 	}
+	return (0);
 }

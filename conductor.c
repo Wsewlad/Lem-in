@@ -24,13 +24,16 @@ void		go_ant(t_data data, t_road *roads, t_stepi **roadsi, int *ant)
 	while (rd)
 	{
 		j = rd->steps - 1;
+		if (*ant <= data.ants && \
+		((data.ants - (*ant - 1)) > j - (data.lns2[0] - 1) || !i))
+			lant = (*ant)++;
+		else
+			lant = 0;
 		while (j > 0)
 		{
-			lant = *ant <= data.ants ? *ant : 0;
 			roadsi[i][j].ant = j > 1 ? roadsi[i][j - 1].ant : lant;
 			j--;
 		}
-		(*ant)++;
 		rd = rd->next;
 		i++;
 	}
@@ -47,8 +50,11 @@ void		conductor(t_data data, t_road *roads)
 	{
 		go_ant(data, roads, roadsi, &ant);
 		is_last_ant_home(data, roadsi);
-		//print_roads_arr(data, roadsi, roads);
-		//ft_printf("\n");
+		if (data.flag.s)
+		{
+			print_roads_arr(data, roadsi, roads);
+			ft_printf("\n");
+		}
 		print_res(data, roadsi);
 		ft_printf("\n");
 	}
@@ -60,7 +66,7 @@ t_stepi		**lst2array(t_data data, t_road *roads)
 	t_road	*rd;
 	t_step	*stp;
 	int		i;
-	int 	j;
+	int		j;
 
 	i = 0;
 	rd = roads;

@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/vfil/CLionProjects/lem-in/find_best_roads.c" "/Users/vfil/CLionProjects/lem-in/cmake-build-debug/CMakeFiles/lem_in.dir/find_best_roads.c.o"
   "/Users/vfil/CLionProjects/lem-in/find_road.c" "/Users/vfil/CLionProjects/lem-in/cmake-build-debug/CMakeFiles/lem_in.dir/find_road.c.o"
   "/Users/vfil/CLionProjects/lem-in/find_road2.c" "/Users/vfil/CLionProjects/lem-in/cmake-build-debug/CMakeFiles/lem_in.dir/find_road2.c.o"
+  "/Users/vfil/CLionProjects/lem-in/flags_management.c" "/Users/vfil/CLionProjects/lem-in/cmake-build-debug/CMakeFiles/lem_in.dir/flags_management.c.o"
   "/Users/vfil/CLionProjects/lem-in/libft/ft_arriter.c" "/Users/vfil/CLionProjects/lem-in/cmake-build-debug/CMakeFiles/lem_in.dir/libft/ft_arriter.c.o"
   "/Users/vfil/CLionProjects/lem-in/libft/ft_atoi.c" "/Users/vfil/CLionProjects/lem-in/cmake-build-debug/CMakeFiles/lem_in.dir/libft/ft_atoi.c.o"
   "/Users/vfil/CLionProjects/lem-in/libft/ft_bzero.c" "/Users/vfil/CLionProjects/lem-in/cmake-build-debug/CMakeFiles/lem_in.dir/libft/ft_bzero.c.o"

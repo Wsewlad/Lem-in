@@ -109,15 +109,16 @@ void	print_roads_arr(t_data data, t_stepi **roadsi, t_road *roads)
 void	print_ant_in_room(int ant, int r, t_data data)
 {
 	if (ant > 0 && ant <= data.ants)
-		ft_printf("{yel}L%d{eoc} %s {blu}->{eoc} ", ant, data.rooms[r].name);
+		ft_printf("{yel}%C%d{eoc} %s {blu}--{eoc} ", L'🐜', ant, \
+		data.rooms[r].name);
 	else
-		ft_printf("{blu}L%d{eoc} %s {blu}->{eoc} ", ant, data.rooms[r].name);
+		ft_printf("{blu}L%d{eoc} %s {blu}--{eoc} ", ant, data.rooms[r].name);
 }
 
 void	print_last_ant_in_room(int ant, int r, t_data data, int steps)
 {
 	if (ant > 0 && ant <= data.ants)
-		ft_printf("{yel}L%d{eoc} %s | {blu}len: %d{eoc}", \
+		ft_printf("{yel}%C%d{eoc} %s | {blu}len: %d{eoc}", L'🐜', \
 		ant, data.rooms[r].name, steps);
 	else
 		ft_printf("{blu}L%d{eoc} %s | {blu}len: %d{eoc}", \

@@ -98,6 +98,9 @@
 		<Unit filename="/Users/vfil/CLionProjects/lem-in/find_road2.c">
 			<Option target="lem_in"/>
 		</Unit>
+		<Unit filename="/Users/vfil/CLionProjects/lem-in/flags_management.c">
+			<Option target="lem_in"/>
+		</Unit>
 		<Unit filename="/Users/vfil/CLionProjects/lem-in/lemin.h">
 			<Option target="lem_in"/>
 		</Unit>

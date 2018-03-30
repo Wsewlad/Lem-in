@@ -93,3 +93,24 @@ void		print_res(t_data data, t_stepi **roadsi)
 			return ;
 	}
 }
+
+void		print_from_nain(t_data *data, t_road *roads, t_list *map, int i)
+{
+	if (i == 1)
+	{
+		print_map(map);
+		if (data->flag.d)
+			print_data(data);
+		if (data->flag.a)
+		{
+			ft_printf("{blu}All roads:{eoc}\n");
+			print_roads(*data, roads);
+		}
+	}
+	else if (i == 2 && data->flag.b)
+	{
+		ft_printf("{red}Best roads (%d):{eoc}\n", data->bst_rd);
+		print_roads(*data, roads);
+		ft_printf("-----------------------\n");
+	}
+}

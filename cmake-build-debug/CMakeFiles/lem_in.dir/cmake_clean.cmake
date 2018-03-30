@@ -10,6 +10,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/lem_in.dir/print_bonus.c.o"
   "CMakeFiles/lem_in.dir/checker2.c.o"
   "CMakeFiles/lem_in.dir/find_road2.c.o"
+  "CMakeFiles/lem_in.dir/flags_management.c.o"
   "CMakeFiles/lem_in.dir/libft/ft_arriter.c.o"
   "CMakeFiles/lem_in.dir/libft/ft_atoi.c.o"
   "CMakeFiles/lem_in.dir/libft/ft_bzero.c.o"

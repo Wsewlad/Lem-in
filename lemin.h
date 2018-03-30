@@ -14,6 +14,7 @@
 # define LEMIN_H
 
 # include "libft.h"
+# include <locale.h>
 
 typedef	struct		s_link
 {
@@ -33,12 +34,11 @@ typedef	struct		s_room
 
 typedef struct		s_lemf
 {
-	int 			d;
-	int 			h;
-	int 			a;
-	int 			b;
-	int 			s;
-	int 			v;
+	int				d;
+	int				h;
+	int				a;
+	int				b;
+	int				s;
 }					t_lemf;
 
 typedef struct		s_data
@@ -74,10 +74,11 @@ typedef struct		s_road
 	struct s_road	*next;
 }					t_road;
 
+void				init_flags(int ac, char **av, t_data *data);
 void				parse_data(t_data *data, t_list **map);
 void				line_ok(char *line, int *is_ant, t_data *data);
 void				check_room_identity(t_data *data);
-void				check_links_identity(t_data *data);
+int					check_links_identity(t_data *data, int l, int r1, int r2);
 t_list				*parse_map(t_data *data);
 int					check_spdf(t_list *map, char c);
 void				count_ants(t_list *map, t_data *data);
@@ -86,6 +87,7 @@ void				count_links(t_list *map, t_data *data);
 void				parse_rooms(t_list *map, t_data *data);
 t_list				*parse_room(t_list *map, t_data *data, char type, int *r);
 void				parse_links(t_list *map, t_data *data);
+void				parse_links_helper(t_data *data, char **splt, int *l);
 void				check_es_room(t_data *data);
 int					check_rindex(t_data *data, char *name);
 void				find_roads(t_data data, t_road **roads, \
@@ -114,7 +116,10 @@ void				print_roads(t_data data, t_road	*roads);
 void				print_roads_arr(t_data data, t_stepi **roadsi, \
 t_road *roads);
 void				print_ant_in_room(int ant, int r, t_data data);
-void				print_last_ant_in_room(int ant, int r, t_data data, int steps);
+void				print_last_ant_in_room(int ant, int r, \
+t_data data, int steps);
 void				print_res(t_data data, t_stepi **roadsi);
+void				print_from_nain(t_data *data, t_road *roads, \
+t_list *map, int i);
 
 #endif

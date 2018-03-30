@@ -285,6 +285,33 @@ find_road2.c.s:
 	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/find_road2.c.s
 .PHONY : find_road2.c.s
 
+flags_management.o: flags_management.c.o
+
+.PHONY : flags_management.o
+
+# target to build an object file
+flags_management.c.o:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/flags_management.c.o
+.PHONY : flags_management.c.o
+
+flags_management.i: flags_management.c.i
+
+.PHONY : flags_management.i
+
+# target to preprocess a source file
+flags_management.c.i:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/flags_management.c.i
+.PHONY : flags_management.c.i
+
+flags_management.s: flags_management.c.s
+
+.PHONY : flags_management.s
+
+# target to generate assembly for a file
+flags_management.c.s:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/flags_management.c.s
+.PHONY : flags_management.c.s
+
 libft/ft_arriter.o: libft/ft_arriter.c.o
 
 .PHONY : libft/ft_arriter.o
@@ -2742,6 +2769,9 @@ help:
 	@echo "... find_road2.o"
 	@echo "... find_road2.i"
 	@echo "... find_road2.s"
+	@echo "... flags_management.o"
+	@echo "... flags_management.i"
+	@echo "... flags_management.s"
 	@echo "... libft/ft_arriter.o"
 	@echo "... libft/ft_arriter.i"
 	@echo "... libft/ft_arriter.s"
