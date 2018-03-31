@@ -20,6 +20,7 @@ void		print_help(int is_exit)
 	ft_printf("\t-a\tprint all found roads\n");
 	ft_printf("\t-b\tprint 'best' roads that haven't intersections\n");
 	ft_printf("\t-s\tshow detail ants %C  moving\n", L'🐜');
+	ft_printf("\t-v\tvisualize ants %C  moving\n", L'🐜');
 	ft_printf("\t-f\tinitialize all flags\n\n");
 	if (is_exit)
 		exit(1);
@@ -46,6 +47,8 @@ static void	check_flags(char c, t_data *data)
 		data->flag.b = 1;
 	else if (c == 's')
 		data->flag.s = 1;
+	else if (c == 'v')
+		data->flag.v = 1;
 	else if (c == 'f')
 	{
 		init2int(data, 1);
@@ -58,6 +61,7 @@ void		init_flags(int ac, char **av, t_data *data)
 	int i;
 	int j;
 
+	data->flag.v = 0;
 	init2int(data, 0);
 	i = 1;
 	while (i < ac)

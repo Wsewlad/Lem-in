@@ -50,13 +50,19 @@ void		conductor(t_data data, t_road *roads)
 	{
 		go_ant(data, roads, roadsi, &ant);
 		is_last_ant_home(data, roadsi);
-		if (data.flag.s)
+		if (data.flag.v)
 		{
+			usleep(900000);
+			system("clear");
 			print_roads_arr(data, roadsi, roads);
+		}
+		if (!data.flag.v)
+		{
+			if (data.flag.s)
+				print_roads_arr(data, roadsi, roads);
+			print_res(data, roadsi);
 			ft_printf("\n");
 		}
-		print_res(data, roadsi);
-		ft_printf("\n");
 	}
 }
 
@@ -111,5 +117,9 @@ void		is_last_ant_home(t_data data, t_stepi **roadsi)
 		i++;
 	}
 	if (!ant)
+	{
+		if (data.flag.d)
+			system("leaks -quiet lem-in");
 		exit(1);
+	}
 }

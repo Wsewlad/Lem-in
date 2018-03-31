@@ -31,6 +31,8 @@ t_list	*parse_map(t_data *data)
 		lst = ft_lstnew(line, ft_strlen(line));
 		ft_strdel(&line);
 	}
+	else
+		print_error("Not valid file", data);
 	map = lst;
 	while (get_next_line(0, &line) > 0)
 	{
@@ -73,16 +75,18 @@ t_list	*parse_room(t_list *map, t_data *data, char type, int *r)
 void	parse_rooms(t_list *map, t_data *data)
 {
 	int r;
+	int se;
 
+	se = 0;
 	r = 0;
 	while (map)
 	{
-		if (ft_strcmp(map->content, "##start") == 0)
+		if (ft_strcmp(map->content, "##start") == 0 && ++se)
 		{
 			if ((map = map->next))
 				parse_room(map, data, 's', &r);
 		}
-		else if (ft_strcmp(map->content, "##end") == 0)
+		else if (ft_strcmp(map->content, "##end") == 0 && ++se)
 		{
 			if ((map = map->next))
 				parse_room(map, data, 'e', &r);
@@ -92,6 +96,8 @@ void	parse_rooms(t_list *map, t_data *data)
 		if (map)
 			map = map->next;
 	}
+	if (se != 2)
+		print_error("Problem with ##start or ##end", data);
 }
 
 void	parse_links(t_list *map, t_data *data)
@@ -107,13 +113,8 @@ void	parse_links(t_list *map, t_data *data)
 			if (check_spdf(map, '-') == 1)
 			{
 				splt = ft_strsplit(map->content, '-');
-				if (check_links_identity(data, l, check_rindex(data, splt[0]), \
-				check_rindex(data, splt[1])))
-				{
-					ft_memdel(&(map->content));
-					map->content = ft_strdup(" - ");
-				}
-				else
+				if (!check_links_identity(data, l, \
+				check_rindex(data, splt[0]), check_rindex(data, splt[1])))
 					parse_links_helper(data, splt, &l);
 				ft_arriter(splt, free);
 				free(splt);

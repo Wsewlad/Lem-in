@@ -34,7 +34,10 @@ void		print_map(t_list *map)
 void		print_error(char *str, t_data *data)
 {
 	if (data->flag.d)
+	{
 		ft_printf("{red}ERROR: '%s'{eoc}\n", str);
+		system("leaks -quiet lem-in");
+	}
 	else
 	{
 		str = NULL;

@@ -39,6 +39,7 @@ typedef struct		s_lemf
 	int				a;
 	int				b;
 	int				s;
+	int				v;
 }					t_lemf;
 
 typedef struct		s_data

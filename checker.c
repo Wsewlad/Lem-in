@@ -57,7 +57,9 @@ int		check_spdf(t_list *map, char c)
 void	count_rooms(t_list *map, t_data *data)
 {
 	int sp;
+	int df;
 
+	df = 0;
 	map = map->next;
 	data->r_nb = 0;
 	while (map)
@@ -65,6 +67,9 @@ void	count_rooms(t_list *map, t_data *data)
 		if (((char*)map->content)[0] != '#')
 		{
 			sp = check_spdf(map, ' ');
+			df = !df ? check_spdf(map, '-') : df;
+			if (sp == 2 && df)
+				print_error(map->content, data);
 			if (sp == 2)
 				data->r_nb++;
 			else if (sp)

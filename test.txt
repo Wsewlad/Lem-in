@@ -1,0 +1,7 @@
+10
+##start
+a 1 2
+##end
+b 2 2
+a-b
+a-b
