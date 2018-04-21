@@ -15,7 +15,7 @@ The goal of this project is to find the quickest way to get n ants across the fa
 	*	10 - is number of ants;
 	*	##start - is command and set roomt that follows as start;
 	*	##end - set roomt that follows as end;
-	*	#comment - is a comment thet may be any text;
+	*	#comment - is a comment that may be any text;
 	*	1, 2, 3, 4, 5, 6, 7 and 0 - are names of rooms whith coordinates:
 		*	1 - start room
 		*	0 - end room
@@ -24,4 +24,4 @@ The goal of this project is to find the quickest way to get n ants across the fa
 
 	![make](./3.png)
 
-	
+
