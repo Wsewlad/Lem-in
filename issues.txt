@@ -1,2 +1,0 @@
-1. Double free when input is directory
-2. You should respect the following order: number of ants, rooms, and links
