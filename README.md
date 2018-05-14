@@ -1,6 +1,8 @@
 # Lem-in
 The goal of this project is to find the quickest way to get n ants across the farm.
 
+This project done without standard libraries but with my own (see `libft` folder)
+
 1. This project runs on the command line (UNIX).
 2. You must compile this project (run `make`)
 
@@ -29,3 +31,7 @@ The goal of this project is to find the quickest way to get n ants across the fa
 	*	then each row means one step that "all" ants do;
 	*	L[n] - is sequence number of ant;
 	*	..-[name of room] - is names of room where current ant located (for exmp. L1-3 means ant "1" is in room "3");
+
+4.	And some bonuses
+
+	![bonuses](img4exmp/4.png)

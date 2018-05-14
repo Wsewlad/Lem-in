@@ -50,10 +50,7 @@ static void	check_flags(char c, t_data *data)
 	else if (c == 'v')
 		data->flag.v = 1;
 	else if (c == 'f')
-	{
 		init2int(data, 1);
-		print_help(0);
-	}
 }
 
 void		init_flags(int ac, char **av, t_data *data)
@@ -81,6 +78,8 @@ void		init_flags(int ac, char **av, t_data *data)
 			print_help(1);
 		i++;
 	}
+	if (data->flag.h)
+		print_help(0);
 }
 
 void		parse_links_helper(t_data *data, char **splt, int *l)
