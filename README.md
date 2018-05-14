@@ -13,6 +13,10 @@ This project done without standard libraries but with my own (see `libft` folder
 
 	![map](img4exmp/2.png)
 
+	Which corresponds to the following representation
+
+	![map2](img4exmp/5.png)
+
 	Where:
 	*	10 - is number of ants;
 	*	##start - is command and set roomt that follows as start;
