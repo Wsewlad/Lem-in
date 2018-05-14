@@ -4,12 +4,12 @@ The goal of this project is to find the quickest way to get n ants across the fa
 1. This project runs on the command line (UNIX).
 2. You must compile this project (run `make`)
 
-![make](./1.png)
+![make](img4exmp/1.png)
 
 3. Run it as follows (run `./lem-in < [map name]`)
 	1.	For example (map `test_map1`)
 
-	![make](./2.png)
+	![map](img4exmp/2.png)
 
 	Where:
 	*	10 - is number of ants;
@@ -22,6 +22,6 @@ The goal of this project is to find the quickest way to get n ants across the fa
 	*	4-2 ... are links between rooms ('corridors')
 	2.	And result is:
 
-	![make](./3.png)
+	![res](img4exmp/3.png)
 
 
