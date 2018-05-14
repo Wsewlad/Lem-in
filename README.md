@@ -24,4 +24,8 @@ The goal of this project is to find the quickest way to get n ants across the fa
 
 	![res](img4exmp/3.png)
 
-
+	Where:
+	*	first prints map (see above)
+	*	then each row means one step that "all" ants do;
+	*	L[n] - is sequence number of ant;
+	*	..-[name of room] - is names of room where current ant located (for exmp. L1-3 means ant "1" is in room "3");
